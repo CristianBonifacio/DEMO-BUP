@@ -1,0 +1,134 @@
+/* app.component.css */
+
+/* Asegurar que la página ocupe toda la ventana sin scroll */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Desactiva el scroll */
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Contenedor para el video de fondo */
+  .video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Asegura que el video quede detrás del contenido */
+    overflow: hidden;
+    object-fit: cover;
+  
+  }
+  
+  /* Estilo para el video */
+  .background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* El video cubre toda la pantalla sin distorsión */
+  }
+  
+  /* Contenedor con el contenido centrado */
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el contenido */
+    text-align: center;
+    color: white;
+    z-index: 1; /* Asegura que el contenido esté encima del video */
+    padding: 20px;
+  }
+  
+  /* Estilo para el título principal */
+  .title {
+    font-size: 4rem;
+    font-weight: bold;
+    animation: slideIn 2s ease-out; /* Animación de deslizamiento */
+    font-family: 'Russo One', sans-serif;
+  }
+  
+  /* Animación para el título - Deslizar desde el lado izquierdo */
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100vw);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  /* Estilo para el subtítulo */
+  .sub-title {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0; /* Se mostrará con animación */
+    animation: fadeInBlur 2s ease-out 1s forwards; /* Animación de aparición difusa */
+    filter: blur(5px); /* Inicialmente difuso */
+  }
+  
+  /* Animación de aparición gradual con difuminado */
+  @keyframes fadeInBlur {
+    0% {
+      opacity: 0;
+      filter: blur(5px);
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+  
+  /* Información adicional con animación */
+  .additional-info {
+    margin-top: 40px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .info-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f1f1f1;
+    animation: slideUp 2s ease-out;
+  }
+  
+  @keyframes slideUp {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .info-description {
+    font-size: 1.2rem;
+    color: #f1f1f1;
+    margin-top: 10px;
+    animation: fadeIn 3s ease-out 1s forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .call-to-action {
+    font-size: 1.5rem;
+    color: #ff7f50; /* Color llamativo */
+    margin-top: 20px;
+    font-weight: bold;
+    animation: fadeIn 2s ease-out 2s forwards;
+  }
+  
+  

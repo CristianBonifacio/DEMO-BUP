@@ -1,0 +1,7 @@
+.mat-paginator {
+    z-index: 1000; /* Asegúrate de que el menú desplegable sea accesible */
+  }
+  .mat-select-panel {
+    z-index: 1000 !important;
+  }
+  
