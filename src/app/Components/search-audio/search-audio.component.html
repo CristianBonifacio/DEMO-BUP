@@ -1,0 +1,176 @@
+<div class="pt-12 px-36 bg-gray-100 min-h-screen">
+    <!-- Filtros de búsqueda -->
+    <div class="bg-white p-4 shadow rounded-md mb-4 ">
+      <h2 class="text-2xl font-bold text-gray-700 mb-2">Búsqueda de audios</h2>
+      <div class="flex justify-between items-center mb-4">
+        <!-- Fecha inicio -->
+        <div>
+          <label for="startDate" class="block text-xl font-medium text-gray-700">Fecha inicio</label>
+          <input
+            id="startDate"
+            type="date"
+            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            [(ngModel)]="startDate"
+            [value]="startDate"    
+  
+          />
+        </div>
+  
+        <!-- Fecha fin -->
+        <div>
+          <label for="endDate" class="block text-xl font-medium text-gray-700">Fecha fin</label>
+          <input
+            id="endDate"
+            type="date"
+            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            [(ngModel)]="endDate"
+            [value]="endDate"
+  
+          />
+        </div>
+  
+        <!-- Botón de buscar -->
+        <div class="flex items-end">
+          <button
+            (click)="onSearch()"
+            class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            Buscar
+          </button>
+        </div>
+      </div>
+      <div >
+        <button
+        (click)="Filter()"
+        class="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+        Filtrar
+      </button>
+      </div>
+            <!-- Opciones de filtro (solo visibles cuando 'showFilters' es true) -->
+            <div *ngIf="showFilters" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <!-- Agente -->
+              <div class="flex flex-col">
+                <label for="selectedAgente" class="block text-xl font-medium text-gray-400 mb-4">Agente:</label>
+                <select [(ngModel)]="selectedAgente" id="selectedAgente" class="p-2 border rounded">
+                  <option disabled value="Ninguno" class="text-gray-300">Seleccione...</option>
+                  <option value="Ninguno">Ninguno</option>
+                  <option *ngFor="let agente of AgentSelect" [value]="agente">
+                    {{ agente }}
+                  </option>
+                </select>
+              </div>
+            
+              <!-- Skill -->
+              <div class="flex flex-col">
+                <label for="selectedSkill" class="block text-xl font-medium text-gray-400 mb-4">Skill:</label>
+                <select [(ngModel)]="selectedSkill" id="selectedSkill" class="p-2 border rounded">
+                  <option disabled value="Ninguno" class="text-gray-300">Seleccione...</option>
+                  <option value="Ninguno">Ninguno</option>
+                  <option *ngFor="let skill of SkillSelect" [value]="skill">
+                    {{ skill }}
+                  </option>
+                </select>
+              </div>
+            
+              <!-- Origen -->
+              <div class="flex flex-col">
+                <label for="Origen" class="block text-xl font-medium text-gray-400 mb-4">Origen:</label>
+                <input
+                  id="Origen"
+                  type="text"
+                  class="p-2 bg-slate-200 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  [(ngModel)]="Origen">
+              </div>
+            
+              <!-- Destino -->
+              <div class="flex flex-col">
+                <label for="Destino" class="block text-xl font-medium text-gray-400 mb-4">Destino:</label>
+                <input
+                  id="Destino"
+                  type="text"
+                  class="p-2 bg-slate-200 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  [(ngModel)]="Destino">
+              </div>
+            </div>
+    </div>
+
+    <div class="bg-white p-4 shadow rounded-md">
+        <div class="flex justify-between">
+        <h2 class="text-lg font-bold text-gray-700 mb-2">resultados de audios</h2>
+        <div *ngIf="selectedAudio">
+          <audio controls [src]="selectedAudio" class="ml-4"></audio>
+        </div>
+        </div>
+        <div class="table-container" style="overflow: auto; height: 50vh;">
+          <div *ngIf="dataSource.data.length == 0" class="flex justify-center items-center h-full text-center text-gray-500">
+            No se encontraron resultados
+          </div>
+          <table *ngIf="dataSource.data.length !=0" mat-table [dataSource]="dataSource" class="min-w-full table-auto border-collapse border border-gray-300">
+        
+            <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef>fecha</th>
+            <td mat-cell *matCellDef="let element">{{ element.fecha | date:"dd/MM/yyyy" }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="idgrabacion">
+            <th mat-header-cell *matHeaderCellDef>idgrabacion</th>
+            <td mat-cell *matCellDef="let element">{{ element.idgrabacion}}</td>
+          </ng-container>
+          <ng-container matColumnDef="ucid_call">
+            <th mat-header-cell *matHeaderCellDef>ucid_call</th>
+            <td mat-cell *matCellDef="let element">{{ element.ucid_call}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="duracion">
+            <th mat-header-cell *matHeaderCellDef>duracion</th>
+            <td mat-cell *matCellDef="let element">{{ element.duracion }}</td>
+          </ng-container>
+          <ng-container matColumnDef="agente">
+            <th mat-header-cell *matHeaderCellDef>agente</th>
+            <td mat-cell *matCellDef="let element">{{ element.agente }}</td>
+          </ng-container>
+          <ng-container matColumnDef="origen">
+            <th mat-header-cell *matHeaderCellDef>origen</th>
+            <td mat-cell *matCellDef="let element">{{ element.origen }}</td>
+          </ng-container>
+          <ng-container matColumnDef="destino">   
+            <th mat-header-cell *matHeaderCellDef>destino</th>
+            <td mat-cell *matCellDef="let element">{{ element.destino}}</td>
+          </ng-container>
+          <ng-container matColumnDef="vdn">
+            <th mat-header-cell *matHeaderCellDef>vdn</th>
+            <td mat-cell *matCellDef="let element">{{ element.vdn }}</td>
+          </ng-container>
+          <ng-container matColumnDef="skill">
+            <th mat-header-cell *matHeaderCellDef>skill</th>
+            <td mat-cell *matCellDef="let element">{{ element.skill}}</td>
+          </ng-container>
+      
+                <!-- Nueva columna: Reproducir -->
+                <ng-container matColumnDef="reproducir">
+                  <th mat-header-cell *matHeaderCellDef>Reproducir</th>
+                  <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button (click)="playAudio(element.ruta)">
+                      <mat-icon>
+                        {{ this.selectedAudio === element.ruta ? 'pause' : 'play_arrow' }}
+                      </mat-icon>
+                    </button>
+                  </td>
+                </ng-container>
+          <!-- Fila -->
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    
+        <!-- Paginador -->
+        <mat-paginator [pageSize]="25"  showFirstLastButtons></mat-paginator>
+    </div>
+</div>
+    
+    

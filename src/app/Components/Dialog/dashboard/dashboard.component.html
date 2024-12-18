@@ -1,0 +1,64 @@
+<div class="p-10 bg-gray-50 border border-gray-300 rounded-lg shadow-xl relative">
+  <!-- Botón de Cerrar -->
+  <button
+    (click)="onClose()"
+    class="absolute top-4 right-4 bg-red-500 text-white font-bold py-2 px-4 rounded-full shadow hover:bg-red-600 transition duration-300"
+  >
+    X
+  </button>
+
+  <!-- Encabezado del Diálogo -->
+  <h1 class="text-2xl font-bold text-center mb-8">Dashboard Overview</h1>
+<!-- Contenedor Flex de los Dashboards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <!-- Call Direction Chart -->
+  <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+    <h2 class="font-bold text-xl text-gray-700 mb-4">Call Direction</h2>
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [labels]="chartOptions.labels"
+      [responsive]="chartOptions.responsive"
+      class="w-full h-64"
+    ></apx-chart>
+  </div>
+
+  <!-- Top 5 Answered Calls -->
+  <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+    <h2 class="font-bold text-xl text-gray-700 mb-4">Top 5 Answered Calls</h2>
+    <apx-chart
+      [series]="secondChartOptions.series"
+      [chart]="secondChartOptions.chart"
+      [labels]="secondChartOptions.labels"
+      [responsive]="secondChartOptions.responsive"
+      class="w-full h-64"
+    ></apx-chart>
+  </div>
+
+  <!-- Top 5 Unanswered Calls -->
+  <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+    <h2 class="font-bold text-xl text-gray-700 mb-4">Top 5 Unanswered Calls</h2>
+    <apx-chart
+      [series]="thirdChartOptions.series"
+      [chart]="thirdChartOptions.chart"
+      [labels]="thirdChartOptions.labels"
+      [responsive]="thirdChartOptions.responsive"
+      class="w-full h-64"
+    ></apx-chart>
+  </div>
+
+  <!-- Total Answered/Unanswered -->
+  <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+    <h2 class="font-bold text-xl text-gray-700 mb-4">Total Answered/Unanswered</h2>
+    <apx-chart
+      [series]="fourChartOptions.series"
+      [chart]="fourChartOptions.chart"
+      [labels]="fourChartOptions.labels"
+      [responsive]="fourChartOptions.responsive"
+      class="w-full h-64"
+    ></apx-chart>
+  </div>
+</div>
+
+
+</div>

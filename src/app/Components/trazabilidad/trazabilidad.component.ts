@@ -34883,7 +34883,7 @@ export class TrazabilidadComponent implements OnInit {
         @ViewChild(MatPaginator) paginator!: MatPaginator;
 
         // Columnas que se mostrarán en la tabla
-        displayedColumns: string[] = ['id', 'callid', 'Inicio', 'Fin', 'duration','Origen','Destino', 'tipo','Segmento','Dni/Ruc', 'corte'];
+        displayedColumns: string[] = ['id', 'callid','Fecha', 'Inicio', 'Fin', 'duration','Origen','Destino', 'tipo','Segmento','Dni/Ruc', 'corte'];
         dataSource = new MatTableDataSource<any>([]); // Asegúrate de que dataSource tenga datos
 
   constructor() {
@@ -34892,7 +34892,6 @@ export class TrazabilidadComponent implements OnInit {
         // Asignamos la fecha actual a las variables
         this.startDate = formattedDate;
         this.endDate = formattedDate;
-        console.log(this.startDate);
   }
 
   ngOnInit(): void {
