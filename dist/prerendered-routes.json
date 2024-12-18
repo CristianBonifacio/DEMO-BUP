@@ -1,0 +1,9 @@
+{
+  "routes": [
+    "/",
+    "/bt",
+    "/search-audio",
+    "/tarificador",
+    "/trazabilidad"
+  ]
+}
