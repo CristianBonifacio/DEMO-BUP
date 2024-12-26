@@ -18,8 +18,8 @@
             ],
             "outputPath": "dist",
             "index": "src/index.html",
-            "baseHref": "/",
-            "deployUrl": "/",
+            "baseHref": "./",
+            "deployUrl": "./",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -48,8 +48,8 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/",
-              "deployUrl": "/",
+              "baseHref": "./",
+              "deployUrl": "./",
               "budgets": [
                 {
                   "type": "initial",
