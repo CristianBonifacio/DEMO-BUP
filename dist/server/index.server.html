@@ -14,23 +14,31 @@
   <app-root></app-root>
 
   <script type="text/javascript">
-    // Asegurarse de que el script se ejecute solo cuando el contenido del body esté cargado
     window.addEventListener('load', function () {
       var script = document.createElement('script');
       script.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
       script.type = "text/javascript";
-      
+  
       script.onload = function () {
-        window.voiceflow.chat.load({
-          verify: { projectID: '67477e69d7ac81d695d394f6' },
-          url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production',
-          autostart:false,
-        });
+        if (window.voiceflow) {
+          window.voiceflow.chat.load({
+            verify: { projectID: '67477e69d7ac81d695d394f6' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production',
+            user: {
+              variables: {
+                currentURL: window.location.href // Pasa la URL actual al flujo
+              }
+            }
+          });
+        } else {
+          console.error("Voiceflow script not loaded");
+        }
       };
-      
+  
       document.body.appendChild(script);
     });
   </script>
+  
 <link rel="modulepreload" href="./chunk-6MDQTQU3.js"><script src="./polyfills-FFHMD2TL.js" type="module"></script><script src="./main-6YBVM7YK.js" type="module"></script></body>
 </html>

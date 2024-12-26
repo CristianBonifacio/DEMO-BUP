@@ -12,24 +12,32 @@
   <app-root _nghost-ng-c3984273398 ng-version="18.2.13" ngh="1" ng-server-context="ssg"><router-outlet _ngcontent-ng-c3984273398></router-outlet><app-home _nghost-ng-c2379464812 ngh="0"><div _ngcontent-ng-c2379464812 class="video-background"><video _ngcontent-ng-c2379464812 autoplay muted loop preload="auto" class="background-video"><source _ngcontent-ng-c2379464812 src="./assets/video-portada.mp4" type="video/mp4"> Tu navegador no soporta videos. </video></div><div _ngcontent-ng-c2379464812 class="content"><h1 _ngcontent-ng-c2379464812 class="title">¡Bienvenido a Nuestros Nuevos Servicios Tecnológicos!</h1><p _ngcontent-ng-c2379464812 class="sub-title">Explora nuestras innovaciones y soluciones tecnológicas.</p><div _ngcontent-ng-c2379464812 class="additional-info"><h2 _ngcontent-ng-c2379464812 class="info-title">Descubre lo que tenemos para ti</h2><p _ngcontent-ng-c2379464812 class="info-description"></p></div></div></app-home><!----></app-root>
 
   <script type="text/javascript">
-    // Asegurarse de que el script se ejecute solo cuando el contenido del body esté cargado
     window.addEventListener('load', function () {
       var script = document.createElement('script');
       script.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
       script.type = "text/javascript";
-      
+  
       script.onload = function () {
-        window.voiceflow.chat.load({
-          verify: { projectID: '67477e69d7ac81d695d394f6' },
-          url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production',
-          autostart:false,
-        });
+        if (window.voiceflow) {
+          window.voiceflow.chat.load({
+            verify: { projectID: '67477e69d7ac81d695d394f6' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production',
+            user: {
+              variables: {
+                currentURL: window.location.href // Pasa la URL actual al flujo
+              }
+            }
+          });
+        } else {
+          console.error("Voiceflow script not loaded");
+        }
       };
-      
+  
       document.body.appendChild(script);
     });
   </script>
+  
 <link rel="modulepreload" href="./chunk-6MDQTQU3.js"><script src="./polyfills-FFHMD2TL.js" type="module"></script><script src="./main-6YBVM7YK.js" type="module"></script>
 
 <script id="ng-state" type="application/json">{"__nghData__":[{},{"c":{"0":[{"i":"c2379464812","r":1}]}}]}</script></body></html>
