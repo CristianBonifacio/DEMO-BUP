@@ -13,22 +13,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatSelectModule } from '@angular/material/select';
 
 @Component({
-  selector: 'app-trazabilidad',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatTableModule,
-    MatInputModule,
-    MatButtonModule,
-    FormsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatPaginatorModule, // Importa el módulo de paginador,
-    MatSelectModule,
-    
-  ],
-  templateUrl: './trazabilidad.component.html',
-  styleUrl: './trazabilidad.component.css'
+    selector: 'app-trazabilidad',
+    imports: [
+        CommonModule,
+        MatTableModule,
+        MatInputModule,
+        MatButtonModule,
+        FormsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatPaginatorModule, // Importa el módulo de paginador,
+        MatSelectModule,
+    ],
+    templateUrl: './trazabilidad.component.html',
+    styleUrl: './trazabilidad.component.css'
 })
 export class TrazabilidadComponent implements OnInit {
 

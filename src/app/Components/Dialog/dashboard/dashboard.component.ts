@@ -19,11 +19,12 @@ export type ChartOptions = {
 }; 
 
 @Component({
-  selector: 'app-dashboard',
-  standalone: true,
-  imports: [NgApexchartsModule, CommonModule],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+    selector: 'app-dashboard',
+    imports: [NgApexchartsModule,CommonModule],
+    templateUrl: './dashboard.component.html',
+    styleUrl: './dashboard.component.css',
+    standalone: true 
+
 })
 export class DashboardComponent implements OnInit {
   @ViewChild("chart") chart!: ChartComponent;
@@ -41,20 +42,7 @@ export class DashboardComponent implements OnInit {
       chart: {
         width: 340,
         height: 340,
-        type: "pie",
-        animations: {
-          enabled: true,
-          easing: 'easeinout',
-          speed: 800,
-          animateGradually: {
-            enabled: true,
-            delay: 150
-          },
-          dynamicAnimation: {
-            enabled: true,
-            speed: 350
-          }
-        }
+        type: "pie"
       },
       labels: [],
       responsive: [

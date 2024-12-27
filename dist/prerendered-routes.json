@@ -1,9 +1,9 @@
 {
-  "routes": [
-    "/",
-    "/bt",
-    "/search-audio",
-    "/tarificador",
-    "/trazabilidad"
-  ]
+  "routes": {
+    "/": {},
+    "/bt": {},
+    "/search-audio": {},
+    "/tarificador": {},
+    "/trazabilidad": {}
+  }
 }

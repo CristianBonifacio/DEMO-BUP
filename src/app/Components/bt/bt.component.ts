@@ -32,11 +32,12 @@ export interface CallData {
   "Unanswered Call": string;
 }
 @Component({
-  selector: 'app-bt',
-  standalone: true,
-  imports: [CommonModule,MatInputModule,FormsModule,MatTableModule,MatPaginatorModule],
-  templateUrl: './bt.component.html',
-  styleUrl: './bt.component.css'
+    selector: 'app-bt',
+    imports: [CommonModule, MatInputModule, FormsModule, MatTableModule, MatPaginatorModule],
+    templateUrl: './bt.component.html',
+    styleUrl: './bt.component.css',
+    standalone: true, 
+
 })
 export class BTComponent implements OnInit {
 data=[

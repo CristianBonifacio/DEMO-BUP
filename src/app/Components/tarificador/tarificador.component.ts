@@ -7,12 +7,13 @@ import { MatTableDataSource } from '@angular/material/table';
 import * as XLSX from 'xlsx';
 
 @Component({
-  selector: 'app-tarificador',
-  standalone: true,
-  imports: [CommonModule  ,  FormsModule,MatTableModule,MatPaginatorModule
-  ],
-  templateUrl: './tarificador.component.html',
-  styleUrl: './tarificador.component.css'
+    selector: 'app-tarificador',
+    imports: [CommonModule, FormsModule, MatTableModule, MatPaginatorModule
+    ],
+    templateUrl: './tarificador.component.html',
+    styleUrl: './tarificador.component.css',
+    standalone: true, 
+
 })
 export class TarificadorComponent implements OnInit {
 operadores=[

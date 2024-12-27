@@ -6,11 +6,10 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 @Component({
-  selector: 'app-search-audio',
-  standalone: true,
-  imports: [MatButtonModule,CommonModule,FormsModule,MatTableModule,MatPaginatorModule,MatIconModule],
-  templateUrl: './search-audio.component.html',
-  styleUrl: './search-audio.component.css'
+    selector: 'app-search-audio',
+    imports: [MatButtonModule, CommonModule, FormsModule, MatTableModule, MatPaginatorModule, MatIconModule],
+    templateUrl: './search-audio.component.html',
+    styleUrl: './search-audio.component.css'
 })
 export class SearchAudioComponent implements OnInit {
   data=[{"id": 1,
