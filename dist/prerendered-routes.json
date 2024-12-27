@@ -1,9 +1,9 @@
 {
   "routes": {
-    "/": {},
-    "/bt": {},
-    "/search-audio": {},
-    "/tarificador": {},
-    "/trazabilidad": {}
+    "/DEMO-BUP": {},
+    "/DEMO-BUP/bt": {},
+    "/DEMO-BUP/search-audio": {},
+    "/DEMO-BUP/tarificador": {},
+    "/DEMO-BUP/trazabilidad": {}
   }
 }

@@ -1,6 +1,6 @@
 
 export default {
-  basePath: './',
+  basePath: '/DEMO-BUP/',
   entryPoints: {
     '': () => import('./main.server.mjs')
   },
